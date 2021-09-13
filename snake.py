@@ -11,8 +11,8 @@ bg_color = (12, 61, 61)
 class Resources:
     def __init__(self) -> None:
         self.Sprites = {
-            "apple": pygame.image.load("./resources/emojione_red-apple.png").convert(),
-            "block": pygame.image.load("./resources/Rectangle 1.png").convert()}
+            "apple": pygame.image.load("./resources/apple.png").convert(),
+            "block": pygame.image.load("./resources/Rectangle.png").convert()}
 
 
 class Apple:
