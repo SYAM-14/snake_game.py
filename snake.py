@@ -35,7 +35,12 @@ class Snake:
     def __init__(self, parent_screen, length: int, resources: Resources):
         self.parent_screen = parent_screen
         self.block = resources.Sprites["block"]
-        self.direction = 'down'
+        self.dir_up = 0
+        self.dir_down = 1
+        self.dir_left = 2
+        self.dir_right = 3
+
+        self.direction = self.dir_down
         self.length = length
         self.x = [SIZE] * length
         self.y = [SIZE] * length
@@ -52,30 +57,32 @@ class Snake:
         self.y.append(-1)
 
     def move_left(self):
-        self.direction = 'left'
+        self.direction = self.dir_left
 
     def move_right(self):
-        self.direction = 'right'
+        self.direction = self.dir_right
 
     def move_up(self):
-        self.direction = 'up'
+        self.direction = self.dir_up
 
     def move_down(self):
-        self.direction = 'down'
+        self.direction = self.dir_down
 
     def walk(self):
-
         for i in range(self.length - 1, 0, -1):
             self.x[i] = self.x[i - 1]
             self.y[i] = self.y[i - 1]
 
-        if self.direction == 'left':
+        if self.direction == self.dir_left:
             self.x[0] -= SIZE
-        if self.direction == 'right':
+
+        if self.direction == self.dir_right:
             self.x[0] += SIZE
-        if self.direction == 'up':
+
+        if self.direction == self.dir_up:
             self.y[0] -= SIZE
-        if self.direction == 'down':
+
+        if self.direction == self.dir_down:
             self.y[0] += SIZE
 
         self.draw()
